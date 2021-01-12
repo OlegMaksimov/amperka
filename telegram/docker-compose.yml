@@ -1,0 +1,12 @@
+version: "2.0"
+services:
+  MQTT:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+  node:
+    image: olegmaksimov/telegram-bot_web
+    command: node-red
+    ports:
+      - "1880:1880"

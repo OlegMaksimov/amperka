@@ -1,0 +1,212 @@
+[
+  {
+    "id": "7ce53c0c.81e204",
+    "type": "tab",
+    "label": "Поток 1",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "8f7dfc5c.ed2c",
+    "type": "telegram receiver",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "bot": "7240d75e.be5118",
+    "saveDataDir": "",
+    "filterCommands": false,
+    "x": 120,
+    "y": 60,
+    "wires": [
+      [
+        "f82a8731.23a048",
+        "e2a5282a.2f98f8"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "f82a8731.23a048",
+    "type": "mqtt out",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "topic": "led",
+    "qos": "",
+    "retain": "",
+    "broker": "1674df15.3268b1",
+    "x": 310,
+    "y": 20,
+    "wires": []
+  },
+  {
+    "id": "a581f838.f72088",
+    "type": "json",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 290,
+    "y": 200,
+    "wires": [
+      [
+        "47bdf628.3fe438",
+        "81b0aea5.048e5"
+      ]
+    ]
+  },
+  {
+    "id": "47bdf628.3fe438",
+    "type": "telegram sender",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "bot": "7240d75e.be5118",
+    "haserroroutput": false,
+    "outputs": 1,
+    "x": 500,
+    "y": 220,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f0a1761c.8f5908",
+    "type": "mqtt in",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "topic": "ledStatus",
+    "qos": "2",
+    "datatype": "auto",
+    "broker": "1674df15.3268b1",
+    "x": 100,
+    "y": 180,
+    "wires": [
+      [
+        "a581f838.f72088"
+      ]
+    ]
+  },
+  {
+    "id": "e2a5282a.2f98f8",
+    "type": "debug",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 340,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "81b0aea5.048e5",
+    "type": "debug",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 460,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "ac4d74a6.9f8258",
+    "type": "mqtt in",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "topic": "moisture_store",
+    "qos": "2",
+    "datatype": "auto",
+    "broker": "1674df15.3268b1",
+    "x": 110,
+    "y": 360,
+    "wires": [
+      [
+        "46e1cfe0.aea21"
+      ]
+    ]
+  },
+  {
+    "id": "46e1cfe0.aea21",
+    "type": "json",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 300,
+    "y": 360,
+    "wires": [
+      [
+        "56596c8c.fc9ec4"
+      ]
+    ]
+  },
+  {
+    "id": "56596c8c.fc9ec4",
+    "type": "telegram sender",
+    "z": "7ce53c0c.81e204",
+    "name": "",
+    "bot": "7240d75e.be5118",
+    "haserroroutput": false,
+    "outputs": 1,
+    "x": 490,
+    "y": 360,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "7240d75e.be5118",
+    "type": "telegram bot",
+    "botname": "OlegMaxNcs_bot",
+    "usernames": "",
+    "chatids": "",
+    "baseapiurl": "",
+    "updatemode": "polling",
+    "pollinterval": "300",
+    "usesocks": false,
+    "sockshost": "",
+    "socksport": "6667",
+    "socksusername": "anonymous",
+    "sockspassword": "",
+    "bothost": "",
+    "botpath": "",
+    "localbotport": "8443",
+    "publicbotport": "8443",
+    "privatekey": "",
+    "certificate": "",
+    "useselfsignedcertificate": false,
+    "sslterminated": false,
+    "verboselogging": false
+  },
+  {
+    "id": "1674df15.3268b1",
+    "type": "mqtt-broker",
+    "name": "",
+    "broker": "mosquitto",
+    "port": "1883",
+    "clientid": "",
+    "usetls": false,
+    "compatmode": false,
+    "keepalive": "60",
+    "cleansession": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": ""
+  }
+]
